@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5700487784390056663}
   - component: {fileID: 3052628736117128584}
   - component: {fileID: 1377520621}
+  - component: {fileID: 7140499592536888930}
   m_Layer: 0
-  m_Name: FallingPumpkin
+  m_Name: FallingFruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +71,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7140499592536888930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802391589162871990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163a24fdefa695b4a8418b8d607ba84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5427667985295188457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,76 +145,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f5f2a4d084883f4cb46aa69a08720b0, type: 3}
   m_PrefabInstance: {fileID: 5427667985295188457}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5427667985453781853
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5537257363158517250}
-    m_Modifications:
-    - target: {fileID: 1817780792312866, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_Apricot_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.083
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.602
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067833584678346, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
