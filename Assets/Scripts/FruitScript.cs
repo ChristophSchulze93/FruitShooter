@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FruitScript : MonoBehaviour
 {
-
     public enum FruitType
     {
         Apricot,
@@ -29,9 +28,17 @@ public class FruitScript : MonoBehaviour
         Invoke("DestroySelf", m_DestroyTimerSec);
     }
 
-
     private void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Arrow")
+        {
+            print("hit arrow");
+            GameMode.Instance.HitFruit((int)type);
+        }
     }
 }

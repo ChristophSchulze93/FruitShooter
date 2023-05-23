@@ -5,36 +5,29 @@ using UnityEngine;
 public class FruitSpawner : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> m_FruitList;
+    public List<GameObject> m_FruitList;
 
     private bool m_GameRunning = true;
 
     public Transform spawnPosition;
 
     [SerializeField]
+    private int m_spawnWaitingTime = 3;
+
+    [SerializeField]
     private int m_SpawnRange = 20;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine("StartGame");
-    }
 
     private IEnumerator SpawnRandomFruit()
     {
-
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(m_spawnWaitingTime);
         float randomXPosition = Random.Range(spawnPosition.position.x - m_SpawnRange, spawnPosition.position.x + m_SpawnRange);
         Instantiate(PickRandomFruitFromList(m_FruitList), new Vector3(randomXPosition, spawnPosition.position.y, spawnPosition.position.z), Quaternion.identity);
-        print("spawned fruit");
     }
 
-    private IEnumerator StartGame()
+    public IEnumerator StartFruitSpawnLoop()
     {
         while (m_GameRunning)
         {
-            print("game loop");
             yield return SpawnRandomFruit();
         }
     }
