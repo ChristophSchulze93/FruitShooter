@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7140499592536888930, guid: 6d5889fbac5371747852e3d05ad739c9, type: 3}
+      propertyPath: type
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7802391589162871990, guid: 6d5889fbac5371747852e3d05ad739c9, type: 3}
       propertyPath: m_Name
       value: FallingFruitEggplant

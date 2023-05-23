@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class FruitScript : MonoBehaviour
 {
+
+    public enum FruitType
+    {
+        Apricot,
+        Banana,
+        Beetroot,
+        Cabbage,
+        Chilli,
+        Corn,
+        Eggplant,
+        Pear,
+        Pepper
+    }
+
+    public FruitType type;
+
     [SerializeField]
     private int m_DestroyTimerSec = 15;
 
