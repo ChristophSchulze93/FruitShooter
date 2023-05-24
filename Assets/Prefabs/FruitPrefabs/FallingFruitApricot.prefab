@@ -137,5 +137,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64646861367277974, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 415e2da24d3fba34d8cdcfffdf4d553c, type: 3}
