@@ -85,7 +85,7 @@ public class GameMode : MonoBehaviour
             this.points = 0;
         }
 
-        m_pointText.text = "Points: " + points.ToString();
+        m_pointText.text = "Points: " + this.points.ToString();
 
         SetNextRandomFruit();
     }

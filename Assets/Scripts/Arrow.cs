@@ -16,6 +16,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.transform.root.gameObject.GetComponent<FruitScript>())
         {
+            GameObject.Find("GameMode").GetComponent<GameMode>().HitFruit((int)other.transform.root.gameObject.GetComponent<FruitScript>().type);
             fruit = other.gameObject;
             other.gameObject.transform.parent = transform;
             other.gameObject.transform.localPosition = Vector3.zero;
