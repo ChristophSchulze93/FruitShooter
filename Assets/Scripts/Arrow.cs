@@ -14,9 +14,11 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.root.gameObject.GetComponent<FruitScript>())
+        GameObject parachute = other.transform.root.gameObject;
+        if (parachute.GetComponent<FruitScript>())
         {
-            GameObject.Find("GameMode").GetComponent<GameMode>().HitFruit((int)other.transform.root.gameObject.GetComponent<FruitScript>().type);
+            GameObject.Find("GameMode").GetComponent<GameMode>().HitFruit((int)parachute.GetComponent<FruitScript>().type);
+            parachute.GetComponent<Rigidbody>().drag = 0;
             fruit = other.gameObject;
             other.gameObject.transform.parent = transform;
             other.gameObject.transform.localPosition = Vector3.zero;
