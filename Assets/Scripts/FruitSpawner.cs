@@ -12,14 +12,14 @@ public class FruitSpawner : MonoBehaviour
     public Transform spawnPosition;
 
     [SerializeField]
-    private int m_spawnWaitingTime = 3;
+    private int m_spawnWaitingTime = 2;
 
     [SerializeField]
     private int m_SpawnRange = 20;
 
     public int spawnSearchedFruitInterval = 2;
 
-    private int m_currentSearchedFruitIntervalCounter = 0;
+    private int m_currentSearchedFruitIntervalCounter = 2;
 
     public void SpawnRandomFruit()
     {

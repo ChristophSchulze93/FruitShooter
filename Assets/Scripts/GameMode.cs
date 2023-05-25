@@ -62,8 +62,6 @@ public class GameMode : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
-
         m_lostPanel.SetActive(false);
 
         SetTimerStart();
@@ -91,8 +89,10 @@ public class GameMode : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
             m_gameOver = true;
             m_lostPanel.SetActive(true);
+            ammoCount = 0;
             StopCoroutine(m_fruitSpawnLoop);
         }
     }
