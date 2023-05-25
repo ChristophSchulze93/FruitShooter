@@ -9,7 +9,8 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 10);
+        //Destroy(gameObject, 10);
+        StartCoroutine(SelfDestroy(1));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,5 +32,12 @@ public class Arrow : MonoBehaviour
         {
             fruit.transform.localPosition = Vector3.zero;
         }
+    }
+
+    private IEnumerator SelfDestroy(int lifeSpan)
+    {
+        yield return new WaitForSeconds(lifeSpan);
+        GameMode.Instance.ChangeAmmoCount(-1);
+        Destroy(gameObject);
     }
 }

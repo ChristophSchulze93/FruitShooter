@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    int ammo = 999;
+    int ammo = 10;
     float timer = 0;
     public float fireRate; //hertz
     public GameObject arrow;
     public GameObject camera;
     public float speed;
+    public Transform projectileSpawnPoint;
+
+    private void Start()
+    {
+      GameMode.Instance.ChangeAmmoCount(ammo);
+    }
 
     // Update is called once per frame
     void Update()
@@ -17,12 +23,11 @@ public class Shooting : MonoBehaviour
         timer += Time.deltaTime;
         if (Input.GetMouseButtonDown(0))
         {
-            if(ammo > 0 && timer > 1 / fireRate)
+            if(GameMode.Instance.ammoCount > 0 && timer > 1 / fireRate)
             {
-                --ammo;
                 timer = 0;
                 GameObject arrowInstance = Instantiate(arrow);
-                arrowInstance.transform.position = camera.transform.position + camera.transform.right;
+                arrowInstance.transform.position = projectileSpawnPoint.position;//camera.transform.position + camera.transform.right;
                 RaycastHit hit;
                 if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit))
                 {
@@ -32,6 +37,8 @@ public class Shooting : MonoBehaviour
                     arrowInstance.transform.up = camera.transform.forward;
                 }
                 arrowInstance.GetComponent<Rigidbody>().velocity = arrowInstance.transform.up * speed;
+
+             //GameMode.Instance.ChangeAmmoCount(-1);
             }
         }
     }

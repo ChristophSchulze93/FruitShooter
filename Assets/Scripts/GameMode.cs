@@ -17,6 +17,9 @@ public class GameMode : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_TimeText;
 
+    [SerializeField]
+    private TextMeshProUGUI m_arrowCountText;
+
     public int points = 0;
 
     [SerializeField]
@@ -42,10 +45,11 @@ public class GameMode : MonoBehaviour
 
     private bool m_gameOver = false;
 
-    // Start is called before the first frame update
-    private void Start()
+    public int ammoCount = 0;
+
+    private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -53,6 +57,12 @@ public class GameMode : MonoBehaviour
         {
             Destroy(Instance);
         }
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+
 
         m_lostPanel.SetActive(false);
 
@@ -77,7 +87,7 @@ public class GameMode : MonoBehaviour
             UpdateTimer();
         }
 
-        if (m_currentTime <= 0)
+        if (m_currentTime <= 0 || ammoCount <= 0)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -91,10 +101,8 @@ public class GameMode : MonoBehaviour
     {
         this.points += points;
 
-        if(this.points <= 0)
-        {
-            this.points = 0;
-        }
+        if(this.points <= 0) this.points = 0;
+
 
         m_pointText.text = "Points: " + this.points.ToString();
 
@@ -113,6 +121,7 @@ public class GameMode : MonoBehaviour
         if(fruitIndex == fruitTargetIndex)
         {
             changePoints(50);
+            ChangeAmmoCount(2);
         }
         else
         {
@@ -141,4 +150,17 @@ public class GameMode : MonoBehaviour
 
         m_TimeText.text = "Time: " + m_startTime;
     }
+
+    public void ChangeAmmoCount(int ammoChange)
+    {   
+        ammoCount += ammoChange;
+
+        if (ammoCount < 0) ammoCount = 0;
+
+        m_arrowCountText.text = "Arrows: " + ammoCount.ToString();
+
+  
+    }
+
+
 }
