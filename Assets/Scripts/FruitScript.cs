@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class FruitScript : MonoBehaviour
 {
+    [SerializeField]
+    private MeshRenderer m_parachuteMesh;
+
+    private Rigidbody m_Rigidbody;
+
+    private bool m_reachedMaxHeight = false;
+
+    private float m_fallingThreshold = -0.01f;
+
     public enum FruitType
     {
         Apricot,
@@ -20,12 +29,15 @@ public class FruitScript : MonoBehaviour
     public FruitType type;
 
     [SerializeField]
-    private int m_DestroyTimerSec = 15;
+    private int m_DestroyTimerSec = 17;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody>();
         Invoke("DestroySelf", m_DestroyTimerSec);
+        AddStartForce();
+    
     }
 
     private void DestroySelf()
@@ -42,4 +54,20 @@ public class FruitScript : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    private void FixedUpdate()
+    {
+        if(!m_reachedMaxHeight && m_Rigidbody.velocity.y <= m_fallingThreshold)
+        {
+            m_reachedMaxHeight = true;
+            m_parachuteMesh.enabled = true;
+        }
+    }
+
+    private void AddStartForce()
+    {
+        m_Rigidbody.AddForce(Vector3.up*160f, ForceMode.VelocityChange);
+    }
+
+
 }

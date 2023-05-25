@@ -30,12 +30,14 @@ public class UIManager : MonoBehaviour
             playerScores = new PlayerScores();
         }
 
+        if (m_inputFieldText.text.Length == 1) return;
+        print(m_inputFieldText.text.Length);
+
         playerScores.scores.Add(new ScoreItem(m_inputFieldText.text, GameMode.Instance.points));
 
-        // sort list -> shorten list
         playerScores.scores.Sort(SaveScores.SortByScore);
         playerScores.scores = ShortenListen(playerScores.scores, 5);
-        print(Application.persistentDataPath + "/ScoreTable.json");
+
         SaveScores.SaveToJson(playerScores);
     }
 

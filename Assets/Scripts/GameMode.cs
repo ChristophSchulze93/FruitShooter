@@ -42,10 +42,6 @@ public class GameMode : MonoBehaviour
 
     private bool m_gameOver = false;
 
-    //private float m_updateCurrentTimeInterval = 0f;
-
-
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -101,6 +97,8 @@ public class GameMode : MonoBehaviour
         }
 
         m_pointText.text = "Points: " + this.points.ToString();
+
+        m_fruitSpawner.SpawnRandomFruit();
 
     }
 

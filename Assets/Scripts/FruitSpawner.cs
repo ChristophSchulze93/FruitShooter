@@ -21,9 +21,8 @@ public class FruitSpawner : MonoBehaviour
 
     private int m_currentSearchedFruitIntervalCounter = 0;
 
-    private IEnumerator SpawnRandomFruit()
+    public void SpawnRandomFruit()
     {
-        yield return new WaitForSeconds(m_spawnWaitingTime);
         float randomXPosition = Random.Range(spawnPosition.position.x - m_SpawnRange, spawnPosition.position.x + m_SpawnRange);
         Instantiate(PickRandomFruitFromList(m_FruitList), new Vector3(randomXPosition, spawnPosition.position.y, spawnPosition.position.z), Quaternion.identity);
     }
