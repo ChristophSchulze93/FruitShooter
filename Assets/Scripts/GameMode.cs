@@ -34,6 +34,14 @@ public class GameMode : MonoBehaviour
 
     private float m_nextTimeStamp = 0;
 
+    [SerializeField]
+    private GameObject m_lostPanel;
+
+    [SerializeField]
+    private GameObject m_mainPanel;
+
+    private bool m_gameOver = false;
+
     //private float m_updateCurrentTimeInterval = 0f;
 
 
@@ -50,7 +58,7 @@ public class GameMode : MonoBehaviour
             Destroy(Instance);
         }
 
-
+        m_lostPanel.SetActive(false);
 
         SetTimerStart();
 
@@ -68,11 +76,16 @@ public class GameMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTimer();
-
-        if (m_currentTime < 0)
+        if (!m_gameOver)
         {
+            UpdateTimer();
+        }
 
+        if (m_currentTime <= 0)
+        {
+            m_gameOver = true;
+            m_lostPanel.SetActive(true);
+            StopCoroutine(m_fruitSpawnLoop);
         }
     }
 
@@ -87,7 +100,6 @@ public class GameMode : MonoBehaviour
 
         m_pointText.text = "Points: " + this.points.ToString();
 
-        SetNextRandomFruit();
     }
 
     public void SetNextRandomFruit()
@@ -105,7 +117,9 @@ public class GameMode : MonoBehaviour
         else
         {
             changePoints(-50);
-        }      
+        }
+
+        SetNextRandomFruit();
     }
 
     private void UpdateTimer()

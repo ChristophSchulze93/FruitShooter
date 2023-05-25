@@ -39,6 +39,7 @@ public class FruitScript : MonoBehaviour
         {
             print("hit arrow");
             GameMode.Instance.HitFruit((int)type);
+            gameObject.SetActive(false);
         }
     }
 }
