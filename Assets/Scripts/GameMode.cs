@@ -17,7 +17,7 @@ public class GameMode : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_TimeText;
 
-    private int points = 0;
+    public int points = 0;
 
     [SerializeField]
     private FruitSpawner m_fruitSpawner;
@@ -83,6 +83,8 @@ public class GameMode : MonoBehaviour
 
         if (m_currentTime <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             m_gameOver = true;
             m_lostPanel.SetActive(true);
             StopCoroutine(m_fruitSpawnLoop);

@@ -3269,9 +3269,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenuButtons, Assembly-CSharp
-        m_MethodName: CloseGame
+      - m_Target: {fileID: 569006764}
+        m_TargetAssemblyTypeName: HighscoreListSceneButtons, Assembly-CSharp
+        m_MethodName: LoadMainMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3595,6 +3595,7 @@ GameObject:
   - component: {fileID: 569006760}
   - component: {fileID: 569006759}
   - component: {fileID: 569006763}
+  - component: {fileID: 569006764}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3701,6 +3702,18 @@ MonoBehaviour:
     scores: []
   scoreBoardPanel: {fileID: 838008522}
   scoreBoardEntryPanel: {fileID: 5393098097873764254, guid: 081d85fe6956b214fba28ccc8104ce5c, type: 3}
+--- !u!114 &569006764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569006758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844e5a740359f904a8d36c53c1a6d934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &578434957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6359,9 +6372,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenuButtons, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 569006764}
+        m_TargetAssemblyTypeName: HighscoreListSceneButtons, Assembly-CSharp
+        m_MethodName: LoadLevelScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

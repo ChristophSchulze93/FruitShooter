@@ -9,6 +9,9 @@ public class SaveScores : MonoBehaviour
     public static PlayerScores LoadFromJson()
     {
         string filePath = Application.persistentDataPath + "/ScoreTable.json";
+        
+        if (!File.Exists(filePath)) return new PlayerScores();
+
         string scoreData = File.ReadAllText(filePath);
 
         PlayerScores scoreList = JsonUtility.FromJson<PlayerScores>(scoreData);
@@ -26,5 +29,10 @@ public class SaveScores : MonoBehaviour
 
         File.WriteAllText(filePath, scoreData);
         print("saved");
+    }
+
+    public static int SortByScore(ScoreItem item1, ScoreItem item2)
+    {
+        return item2.score.CompareTo(item1.score);
     }
 }

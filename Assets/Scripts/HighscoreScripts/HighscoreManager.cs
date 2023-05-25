@@ -18,7 +18,8 @@ public class HighscoreManager : MonoBehaviour
     private void Start()
     {
         scoreList = SaveScores.LoadFromJson();
-        scoreList.scores.Sort(SortByScore);
+        if (scoreList == null) return;
+        scoreList.scores.Sort(SaveScores.SortByScore);
         CreateScoreEntries();
     }
 
@@ -26,12 +27,10 @@ public class HighscoreManager : MonoBehaviour
     {
         foreach(ScoreItem item in scoreList.scores)
         {
-            GameObject temp = Instantiate(scoreBoardEntryPanel, scoreBoardPanel.transform);         
+            GameObject temp = Instantiate(scoreBoardEntryPanel, scoreBoardPanel.transform);
+            temp.GetComponent<ScoreBoardEntry>().InitEntry(item.playerName, item.score);           
         }
     }
 
-   public static int SortByScore(ScoreItem item1, ScoreItem item2)
-    {
-        return item1.score.CompareTo(item2.score);
-    }
+
 }
