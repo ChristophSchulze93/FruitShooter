@@ -11,6 +11,8 @@ public class Shooting : MonoBehaviour
     public GameObject camera;
     public float speed;
     public Transform projectileSpawnPoint;
+    public Animator m_animator;
+    public GameObject animationArrow;
 
     private void Start()
     {
@@ -38,8 +40,17 @@ public class Shooting : MonoBehaviour
                 }
                 arrowInstance.GetComponent<Rigidbody>().velocity = arrowInstance.transform.up * speed;
 
+                m_animator.Play("shootArrow");
+                StartCoroutine(ToggleArrow());
              //GameMode.Instance.ChangeAmmoCount(-1);
             }
         }
+    }
+
+    public IEnumerator ToggleArrow()
+    {
+        animationArrow.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        animationArrow.SetActive(true);
     }
 }
