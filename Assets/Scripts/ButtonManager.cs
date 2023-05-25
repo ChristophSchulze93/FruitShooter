@@ -9,4 +9,9 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void SaveNameAndScoreButton(string name)
+    {
+
+    }
 }
