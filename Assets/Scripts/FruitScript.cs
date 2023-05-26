@@ -66,7 +66,7 @@ public class FruitScript : MonoBehaviour
 
     private void AddStartForce()
     {
-        m_Rigidbody.AddForce(Vector3.up*160f, ForceMode.VelocityChange);
+        m_Rigidbody.AddForce(Vector3.up*130f, ForceMode.VelocityChange);
     }
 
 
