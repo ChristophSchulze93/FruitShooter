@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMode : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class GameMode : MonoBehaviour
 
     public AudioClip[] soundEffects;
     private AudioSource audioSource;
+
+    public Image currentFruitSprite;
+
+    public Sprite[] fruitSprites;
 
     private void Awake()
     {
@@ -119,6 +124,7 @@ public class GameMode : MonoBehaviour
     {
         fruitTargetIndex = Random.Range(0, fruitTargetMaxIndex);
         m_fruitTargetText.text = ((FruitScript.FruitType)fruitTargetIndex).ToString();
+        currentFruitSprite.sprite = fruitSprites[fruitTargetIndex];
     }
 
     public void HitFruit(int fruitIndex)
