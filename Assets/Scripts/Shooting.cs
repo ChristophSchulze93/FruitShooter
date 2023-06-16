@@ -13,6 +13,7 @@ public class Shooting : MonoBehaviour
     public Transform projectileSpawnPoint;
     public Animator m_animator;
     public GameObject animationArrow;
+    public AudioSource shootSound;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class Shooting : MonoBehaviour
                 arrowInstance.GetComponent<Rigidbody>().velocity = arrowInstance.transform.up * speed;
 
                 m_animator.Play("shootArrow");
+                shootSound.Play();
                 StartCoroutine(ToggleArrow());
              //GameMode.Instance.ChangeAmmoCount(-1);
             }

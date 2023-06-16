@@ -47,6 +47,9 @@ public class GameMode : MonoBehaviour
 
     public int ammoCount = 0;
 
+    public AudioClip[] soundEffects;
+    private AudioSource audioSource;
+
     private void Awake()
     {
         if (Instance == null)
@@ -73,6 +76,8 @@ public class GameMode : MonoBehaviour
         StartCoroutine(m_fruitSpawnLoop);
 
         fruitTargetMaxIndex = m_fruitSpawner.m_FruitList.Count;
+
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         SetNextRandomFruit();
     }
@@ -122,10 +127,16 @@ public class GameMode : MonoBehaviour
         {
             changePoints(50);
             ChangeAmmoCount(2);
+            audioSource.clip = soundEffects[0];
+            audioSource.Play();
         }
         else
         {
             changePoints(-50);
+            audioSource.clip = soundEffects[1];
+            audioSource.Play();
+
+
         }
 
         SetNextRandomFruit();
