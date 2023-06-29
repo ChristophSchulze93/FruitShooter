@@ -43,6 +43,7 @@ public class Shooting : MonoBehaviour
 
                 m_animator.Play("shootArrow");
                 shootSound.Play();
+                GameMetrics.shots++;
                 StartCoroutine(ToggleArrow());
              //GameMode.Instance.ChangeAmmoCount(-1);
             }

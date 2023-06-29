@@ -95,7 +95,7 @@ public class GameMode : MonoBehaviour
             UpdateTimer();
         }
 
-        if (m_currentTime <= 0 || ammoCount <= 0)
+        if ((m_currentTime <= 0 || ammoCount <= 0) && !m_gameOver)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -104,6 +104,9 @@ public class GameMode : MonoBehaviour
             m_lostPanel.SetActive(true);
             ammoCount = 0;
             StopCoroutine(m_fruitSpawnLoop);
+            GameMetrics.score = points;
+            GameMetrics.SaveMetrics();
+
         }
     }
 
@@ -135,12 +138,14 @@ public class GameMode : MonoBehaviour
             ChangeAmmoCount(2);
             audioSource.clip = soundEffects[0];
             audioSource.Play();
+            GameMetrics.correctHits++;
         }
         else
         {
             changePoints(-50);
             audioSource.clip = soundEffects[1];
             audioSource.Play();
+            GameMetrics.wrongHits++;
 
 
         }
