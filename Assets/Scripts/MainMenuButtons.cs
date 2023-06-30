@@ -20,4 +20,9 @@ public class MainMenuButtons : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void CopyToClipboardButton()
+    {
+        GUIUtility.systemCopyBuffer = Application.persistentDataPath;
+    }
 }
