@@ -21,6 +21,18 @@ public class FruitSpawner : MonoBehaviour
 
     private int m_currentSearchedFruitIntervalCounter = 2;
 
+    public bool variantB = false;
+
+    private void Start()
+    {
+        variantB = FindObjectOfType<VariantManager>().variantB;
+
+        foreach(GameObject fruit in  m_FruitList)
+        {
+            fruit.GetComponent<FruitScript>().fastFalling = variantB;
+        }
+    }
+
     public void SpawnRandomFruit()
     {
         float randomXPosition = Random.Range(spawnPosition.position.x - m_SpawnRange, spawnPosition.position.x + m_SpawnRange);

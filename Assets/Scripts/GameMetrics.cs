@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class GameMetrics : MonoBehaviour
 {
-    public static bool usingKeyboard = true;
+    public static bool usingVariantB = true;
     public static int shots;
     public static int correctHits;
     public static int wrongHits;
     public static int score;
+    public static float playTime;
 
     public static Metrics metrics;
 
@@ -26,7 +27,7 @@ public class GameMetrics : MonoBehaviour
     public static Metrics LoadFromJson()
     {
         string filePath = Application.persistentDataPath + "/Metrics.json";
-
+        print(filePath);
 
         if (!File.Exists(filePath)) return new Metrics();
 
@@ -52,7 +53,7 @@ public class GameMetrics : MonoBehaviour
 
     public static void SaveMetrics()
     {
-        metrics.metric.Add(new MetricItem(usingKeyboard, shots, correctHits, wrongHits,score));
+        metrics.metric.Add(new MetricItem(VariantManager.Instance.variantB, shots, correctHits, wrongHits,score, playTime));
 
 
         SaveToJson(metrics);
@@ -64,6 +65,7 @@ public class GameMetrics : MonoBehaviour
         correctHits = 0;
         wrongHits = 0;
         score = 0;
+        playTime = 0;
 }
 
 

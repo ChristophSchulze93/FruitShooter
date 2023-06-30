@@ -11,19 +11,21 @@ public class Metrics
 [System.Serializable]
 public class MetricItem
 {
-    public bool usingKeyboard;
+    public bool usingVariantB;
     public int shots;
     public int correctHits;
     public int wrongHits;
     public int score;
+    public float playTime;
 
-    public MetricItem(bool usingKeyboard, int shots, int correctHits, int wrongHits, int score)
+    public MetricItem(bool usingVariantB, int shots, int correctHits, int wrongHits, int score, float playTime)
     {
-        this.usingKeyboard = usingKeyboard;
+        this.usingVariantB = usingVariantB;
         this.shots = shots;
         this.correctHits = correctHits; 
         this.wrongHits = wrongHits; 
         this.score = score;
+        this.playTime = playTime;
     }
 }
 

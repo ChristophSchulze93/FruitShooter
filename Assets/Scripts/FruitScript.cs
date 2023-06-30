@@ -13,6 +13,8 @@ public class FruitScript : MonoBehaviour
 
     private float m_fallingThreshold = -0.01f;
 
+    public bool fastFalling = false;
+
     public enum FruitType
     {
         Apricot,
@@ -37,6 +39,11 @@ public class FruitScript : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         Invoke("DestroySelf", m_DestroyTimerSec);
         AddStartForce();
+        if (fastFalling)
+        {
+            transform.localScale *= 1.5f;
+        }
+        
     
     }
 
@@ -61,6 +68,11 @@ public class FruitScript : MonoBehaviour
         {
             m_reachedMaxHeight = true;
             m_parachuteMesh.enabled = true;
+
+            if(fastFalling)
+            {
+                m_Rigidbody.drag = 2;
+            }
         }
     }
 

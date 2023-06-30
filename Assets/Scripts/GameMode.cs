@@ -34,6 +34,7 @@ public class GameMode : MonoBehaviour
     [SerializeField]
     private float m_startTime = 20;
 
+    [SerializeField]
     private float m_currentTime = 0;
 
     private float m_nextTimeStamp = 0;
@@ -105,7 +106,9 @@ public class GameMode : MonoBehaviour
             ammoCount = 0;
             StopCoroutine(m_fruitSpawnLoop);
             GameMetrics.score = points;
+            GameMetrics.playTime = m_startTime - m_currentTime;
             GameMetrics.SaveMetrics();
+
 
         }
     }
