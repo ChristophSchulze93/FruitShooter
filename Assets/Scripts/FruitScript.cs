@@ -15,6 +15,10 @@ public class FruitScript : MonoBehaviour
 
     public bool fastFalling = false;
 
+    public float variantBScaling = 1.5f;
+
+    public float variantBDrag = 2f;
+
     public enum FruitType
     {
         Apricot,
@@ -41,7 +45,7 @@ public class FruitScript : MonoBehaviour
         AddStartForce();
         if (fastFalling)
         {
-            transform.localScale *= 1.5f;
+            transform.localScale *= variantBScaling;
         }
         
     
@@ -71,7 +75,7 @@ public class FruitScript : MonoBehaviour
 
             if(fastFalling)
             {
-                m_Rigidbody.drag = 2;
+                m_Rigidbody.drag = variantBDrag;
             }
         }
     }

@@ -27,7 +27,6 @@ public class GameMetrics : MonoBehaviour
     public static Metrics LoadFromJson()
     {
         string filePath = Application.persistentDataPath + "/Metrics.json";
-        print(filePath);
 
         if (!File.Exists(filePath)) return new Metrics();
 
