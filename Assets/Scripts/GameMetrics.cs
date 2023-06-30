@@ -33,8 +33,6 @@ public class GameMetrics : MonoBehaviour
 
         string metricData = File.ReadAllText(filePath);
 
-        print(metricData);
-
         Metrics metricList = JsonUtility.FromJson<Metrics>(metricData);
 
 
@@ -48,7 +46,6 @@ public class GameMetrics : MonoBehaviour
         string metricData = JsonUtility.ToJson(metricsList);
 
         File.WriteAllText(filePath, metricData);
-        print("saved");
     }
 
     public static void SaveMetrics()

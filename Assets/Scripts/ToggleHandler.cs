@@ -19,7 +19,6 @@ public class ToggleHandler : MonoBehaviour
 
     private void OnToggleValueChanged(bool newValue)
     {
-        print("is called on toggle");
         VariantManager.variantB = newValue;
     }
 
